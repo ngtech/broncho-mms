@@ -1,0 +1,120 @@
+2008-12-16 LuFang <lufang@broncho.cn>
+	* add mms_set_expire_relat.
+	* Release version 1.10.
+
+2008-12-08 LuFang <lufang@broncho.cn>
+	* in src/mms_socket.c. mms_socket_send. fix block bug.
+	* Release 1.9
+
+2008-12-1 LuFang <lufang@broncho.cn>
+	* in src/http_transaction.c: http_transaction_read_response, fix crash
+	bug.
+
+2008-9-4 Li Xianjing  <lixianjing@broncho.cn>
+	* add http_transaction_get_remaining_size
+
+2008-4-24 Li Xianjing  <lixianjing@broncho.cn>
+	* add wap_push.c/.h
+	* Release 1.8
+
+2008-2-28 Lu Fang  <lufang@broncho.cn>
+	* in src/mms_smil.c: fix a bug par name.
+	* Release 1.7
+
+2007-9-6 Li Xianjing  <lixianjing@broncho.cn>
+	* fixed some bugs in src/Makefile.am
+	* Release 1.6
+
+2007-8-24 Lu Fang  <lufang@broncho.cn>
+	* Release 1.5
+	* in mms_smil.c, fixed a bug.
+
+2007-6-7 Lu Fang  <lufang@broncho.cn>
+	* Release 1.4
+
+2007-4-19 Li Xianjing  <lixianjing@broncho.cn>
+	 * in mms_body_pack, if(mms_smil_is_empty(thiz->smil) && length == 0), don't pack it.
+	 * in mms_util.c, added some content-type.
+	 * Release 1.3
+
+2007-2-1 Li Xianjing  <lixianjing@broncho.cn>
+	* in http_transaction.c fixed a bug.
+	* Release 1.2
+
+2007-2-1 Li Xianjing  <lixianjing@broncho.cn>
+	
+	* in mms.c/.h added: mms_save_to_buffer
+	* Release 1.1
+	
+2007-1-26 Li Xianjing  <lixianjing@broncho.cn>
+	* in mms.c/.h added mms_set_date mms_get_status
+			   modified mms_par_set_text_buffer(buffer length include the null char).
+	* in mms_list.c fixed a bug in mms_list_length.
+	* in mms_transaction.c/.h added: mms_transaction_send_buffer
+	* Release 1.0
+
+2007-1-19 Li Xianjing  <lixianjing@broncho.cn>
+	* in mms.c/h mms_smil.c/h added xxx_set_duration mms_add_attachment mms_erase_attachment
+	  mms_get_attachments
+	* in mms_notify.c/.h 
+				added
+				   mms_notify_get_date
+				   mms_notify_get_expiry
+				changed
+				   mms_notify_get_from
+				   mms_notify_get_url
+				   mms_notify_get_subject
+				  mms_get_total_duration
+	 * Release 0.9
+
+2007-01-02 Li Xianjing	<lixianjing@broncho.cn>
+	* in *transaction*, replace timeout with timeout_usec.
+	* handled the encoded string(mms_charset.h/mms_charset.c)
+				renamed mms_create_with_param to mms_create_send_req
+				deleted mms_get_header_info
+				changed the prototype of mms_set_from/mms_set_to/mms_set_subject
+	* added mms_get_expire/mms_get_from/mms_get_to/mms_get_subject/mms_get_delivery_report/mms_get_read_report
+	* Release 0.8
+
+2006-12-30 Li Xianjing	<lixianjing@broncho.cn>
+	* in mms.c fixed a bug in mms_create_with_param, Expired --> X-Mms-Expiry.
+	* in mms.c/mms.h X-Mms-Expiry use absolute time, as the mmsc doesn't support relative time.
+	* in mms_tw.c/.h mms_free implemented as a function instead of macro.
+	* in mms.c mms_par_get_file_data forbid zero-length file name.
+	* in mms.c/.h add the following functions.
+		MmsResult mms_set_expire(Mms* thiz, time_t expire_abs);
+		MmsResult mms_set_from(Mms* thiz, const char* from);
+		MmsResult mms_set_to(Mms* thiz, const char* to);
+		MmsResult mms_set_subject(Mms* thiz, const char* subject);
+	* Release 0.7
+
+2006-12-22 Li Xianjing	<lixianjing@broncho.cn>
+	* in mms_util.c replace ftell with mms_ftell
+	* in mms.c mms_smil.c mms_body_part.c replace free with mms_free.
+	* in mms_linux.h mms_win32.h mms_tw.h remove the params of memory management macros.
+	* Release 0.6
+
+2006-12-22 Li Xianjing	<lixianjing@broncho.cn>
+	* move platform dependent functions into separated files.
+	  mms_linux.h/.c -- linux 
+	  mms_win32.h/.c -- win32
+	  mms_tw.h/.c --	tw
+	* Release 0.5
+
+2006-12-21 Li Xianjing	<lixianjing@broncho.cn>
+	* rewrite mms_erase_par
+	* add mms_get_size
+	* Release 0.4
+
+2006-12-20 Li Xianjing	<lixianjing@broncho.cn>
+	* replace native memory functions with mms_xxx.
+		add functions to set/get read report/delivery report.
+		add mms_create_delivery_ack
+		add
+		  0) MmsResult mms_erase_par(Mms* thiz, size_t par_index);
+		  1) MmsResult mms_par_erase_image(Mms* thiz, size_t par_index);
+		  2) MmsResult mms_par_erase_text(Mms* thiz,  size_t par_index);
+		  3) MmsResult mms_par_erase_audio(Mms* thiz, size_t par_index);
+		  4) Mms*	   mms_create_delivery_ack(const char* transaction_id);
+	 * Release 0.3
+
