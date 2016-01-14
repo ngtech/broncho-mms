@@ -1,0 +1,1 @@
+a multi-media message(MMS) client library, written in C, it works on linux and some other feature phone platform.
